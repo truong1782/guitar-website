@@ -1,0 +1,54 @@
+﻿@model MyClass.Model.POST
+
+@{
+    ViewBag.Title = "Thông tin bài viết";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+}
+<div class="row">
+    <div class="col-md-6">
+        <h2>THÔNG TIN SẢN PHẨM</h2>
+    </div>
+    <div class="col-md-6 text-right">
+        <a href="@Url.Action("Index","POSTs")" class="btn btn-success"><i class="fas fa-list"></i> Trở về danh sách</a>
+    </div>
+</div>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <div class="form-group">
+            <label style="font-weight: bold"> Img:</label>
+            @Html.DisplayFor(model => model.Img)
+        </div>
+        <div class="form-group">
+            <label style="font-weight: bold"> Tiêu đề:</label>
+            @Html.DisplayFor(model => model.Title)
+        </div>
+        <div class="form-group">
+            <label style="font-weight: bold"> Nội dung:</label>
+            @Html.DisplayFor(model => model.Detail)
+        </div>
+        <div class="form-group">
+            <label style="font-weight: bold"> Slug:</label>
+            @Html.DisplayFor(model => model.Slug)
+        </div>
+        <div class="form-group">
+            <label style="font-weight: bold"> Thể loại:</label>
+            @Html.DisplayFor(model => model.PostType)
+        </div>
+        <div class="form-group">
+            <label style="font-weight: bold"> Mô tả ngắn:</label>
+            @Html.DisplayFor(model => model.Sumary)
+        </div>
+        <div class="form-group">
+            <label style="font-weight: bold"> Ngày lập:</label>
+            @Html.DisplayFor(model => model.DateCreate)
+    </dl>
+</div>
+<div class="text-right">
+    <a class="btn btn-success" href="@Url.Action("Edit", "POSTs", new { @id = Model.IdPost })">
+        SỬA
+    </a>
+</div>

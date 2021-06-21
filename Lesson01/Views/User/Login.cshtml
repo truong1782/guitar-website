@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+@using Lesson01.Controllers;
+
+<div class="container" style="height:700px;">
+    <div class="row">
+        <div class="col-md-6 col-8 border border-dark rounded py-2 mx-auto">
+            <h1 class="text-center"><b>Đăng Nhập</b></h1>
+            @using (Html.BeginForm("Login", "User", FormMethod.Post))
+            {
+                <div class="form-group">
+                    <label for="username">Tên đăng nhập</label>
+                    <input type="text" class="form-control" name="username" id="username" />
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" class="form-control" name="password" id="password" />
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <p>Chưa có tài khoản ? <span><a class="text-primary" href="@Url.Action("SignUp","User")">Đăng ký</a></span></p>
+                    </div>
+                </div>
+                <button name="btn-login" type="submit" value="UserLogin" class="btn btn-primary btn-block">Đăng Nhập</button>
+                @Html.Raw(ViewBag.Notice)
+            }
+        </div>
+
+    </div>
+</div>
+

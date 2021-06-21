@@ -1,0 +1,110 @@
+﻿@using Lesson01.Controllers;
+@using Lesson01.Models;
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+
+<div class="container text-left">
+    <div class="row">
+        <!--GIỎ HÀNG-->
+        <div class="col-md-12 col-12">
+            <div class="table">
+                <h3>Giỏ hàng</h3>
+                @using (Html.BeginForm("UpdateQuantity", "Cart", FormMethod.Post))
+                {
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Tên hàng</th>
+                                <th scope="col">Hình ảnh</th>
+                                <th scope="col">Giá</th>
+                                <th scope="col">Số lượng</th>
+                                <th scope="col">Thành tiền</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Session["cart"] != null)
+                            {
+                                foreach (var Cart in (List<Cart>)Session["cart"])
+                                {
+                                    <tr>
+                                        <td>@Cart.PRODUCT.NameProduct</td>
+                                        <td>
+                                            <img class="img-thumbnail" src="~/Public/images/Product/@Cart.PRODUCT.Img" style="width:100px;" />
+                                        </td>
+                                        <td>@((String.Format("{0:N0}", Cart.PRODUCT.PriceBuy))+"đ")</td>
+                                        <td>
+                                            <input name="quantity" id="quantity" type="number" value="@Cart.quantity" min="1" step="1" class="form-control" style="width:70px;" />
+                                        </td>
+                                        <td>@(String.Format("{0:N0}", Cart.PRODUCT.PriceBuy * Cart.quantity)+"đ")</td>
+                                        <td>
+                                            <a class="btn btn-danger" href="@Url.Action("DeleteProduct", "Cart",new { slug = Cart.PRODUCT.Slug })">
+                                                <i class="fas fa-trash ">
+                                                </i>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                }
+                            }
+                            else
+                            {
+
+                            }
+                            <tr>
+                                <td colspan="4" class="text-center"><b>Tổng tiền:</b></td>
+                                @if (Session["cart"] == null)
+                                {
+                                    <td></td>
+                                    <td></td>
+                                }
+                                else
+                                {
+                                    List<Cart> temp = (List<Cart>)Session["cart"];
+                                    var total = String.Format("{0:N0}", temp.Sum(x => x.PRODUCT.PriceBuy * x.quantity));
+                                    <td>@total đ</td>
+                                    <td></td>
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <div class="col-md-3 col-6">
+                            <a class="btn btn-primary rounded" href=@Url.Action("Index","Site")><i class="fas fa-arrow-circle-left"></i>Tiếp tục mua sắm</a>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <button name="capnhatgiohang" type="submit" value="UpdateQuantity" class="btn btn-info rounded"><i class="fas fa-edit"></i>Cập nhật giỏ hàng</button>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <a class="btn btn-danger rounded" href=@Url.Action("DeleteAllProduct", "Cart")><i class="fas fa-times-circle"></i>Xóa đơn hàng</a>
+                        </div>
+                        @if (Session["UserID"] != null)
+                        {
+                            <div class="col-md-3 col-6">
+                                <a class="btn btn-success rounded" href=@Url.Action("CheckOut", "Cart")>
+                                    <i class="fas fa-arrow-circle-right">
+                                    </i>
+                                    Tiến hành đặt hàng
+                                </a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-md-3 col-6">
+                                <a class="btn btn-success rounded" href=@Url.Action("Login", "User")>
+                                    <i class="fas fa-arrow-circle-right">
+                                    </i>
+                                    Tiến hành đặt hàng
+                                </a>
+                                <p class="text-danger">Bạn phải có tài khoản để tiến hành đặt hàng</p>
+                            </div>
+                        }
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+﻿@model MyClass.Model.CATEGORY
+
+@{
+    ViewBag.Title = "Chi tiết";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>THÔNG TIN DANH MỤC</h2>
+    </div>
+    <div class="col-md-6 text-right">
+        <a href="@Url.Action("Index","CATEGORYs")" class="btn btn-success"><i class="fas fa-list"></i> Trở về danh sách</a>
+    </div>
+</div>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <div class="form-group">
+            <div class="col-md-4">
+                <label style="font-weight: bold"> Mã danh mục:</label>
+                @Html.DisplayFor(model => model.IdCategory)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label style="font-weight: bold"> Tên danh mục:</label>
+                @Html.DisplayFor(model => model.NameCategory)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label style="font-weight: bold"> Slug:</label>
+                @Html.DisplayFor(model => model.Slug)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label style="font-weight: bold"> MetaKey:</label>
+                @Html.DisplayFor(model => model.MetaKey)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label style="font-weight: bold">Mô tả:</label>
+                @Html.DisplayFor(model => model.MetaDesc)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label style="font-weight: bold">Tạo bởi:</label>
+                @Html.DisplayFor(model => model.Created_By)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label style="font-weight: bold">Tạo vào:</label>
+                @Html.DisplayFor(model => model.Created_At)
+            </div>
+        </div>
+</div>
+<div class="form-group">
+    <div class="text-right">
+        <a class="btn btn-success" href="@Url.Action("Edit", "CATEGORYs", new { @id = Model.IdCategory })">
+            SỬA
+        </a>
+    </div>
+</div>

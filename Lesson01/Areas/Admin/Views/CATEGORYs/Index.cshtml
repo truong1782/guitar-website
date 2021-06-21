@@ -1,0 +1,73 @@
+﻿@model IEnumerable<MyClass.Model.CATEGORY>
+
+@{
+    ViewBag.Title = "Danh sách loại sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-6">
+                <strong>DANH SÁCH LOẠI SẢN PHẨM</strong>
+            </div>
+            <div class="col-md-6 text-right">
+                <a href="@Url.Action("Create","CATEGORYs")" class="btn btn-success"><i class="fas fa-plus-circle"></i>Thêm loại sản phẩm</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-striped" id="myTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tên loại</th>
+                    <th>Slug</th>
+                    <th>Tạo bởi</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdCategory)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NameCategory)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Slug)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Created_By)
+                        </td>
+                        <td>
+
+                            <a class="btn btn-sm btn-success" href="@Url.Action("Edit","CATEGORYs",new { @id = item.IdCategory })">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a class="btn btn-sm btn-danger" href="@Url.Action("Delete","CATEGORYs",new { @id = item.IdCategory })">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                            <a class="btn btn-sm btn-info" href="@Url.Action("Details","CATEGORYs",new { @id = item.IdCategory })">
+                                <i class="fas fa-info-circle"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    jQuery(document).ready(function () {
+        $('#myTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Vietnamese.json"
+            }
+        });
+    });
+</script>

@@ -1,0 +1,78 @@
+﻿@model MyClass.Model.PRODUCT
+
+@{
+    ViewBag.Title = "Sửa thông tin sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>SỬA THÔNG TIN</h2>
+    </div>
+    <div class="col-md-6 text-right">
+        <a href="@Url.Action("Index","PRODUCTs")" class="btn btn-success"><i class="fas fa-list"></i> Trở về danh sách</a>
+    </div>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.IdProduct)
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-6">
+                <lable class="control-label">Tên sản phẩm</lable>
+                @Html.EditorFor(model => model.NameProduct, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NameProduct, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6">
+                <lable class="control-label">Loại sản phẩm</lable>
+                @Html.DropDownList("IdCategory", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IdCategory, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Hình ảnh</label>
+        <input name="Img" type="file" class="form-control" />
+    </div>
+    <div class="form-group">
+        <lable class="control-label">Bài giới thiệu</lable>
+        <div>
+            @Html.TextAreaFor(model => model.Detail, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <lable class="control-label">Giá bán</lable>
+        <div>
+            @Html.EditorFor(model => model.PriceBuy, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PriceBuy, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <lable class="control-label">MetaKey</lable>
+        <div>
+            @Html.EditorFor(model => model.MetaKey, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MetaKey, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <lable class="control-label">Mô tả</lable>
+        <div>
+            @Html.TextAreaFor(model => model.MetaDesc, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MetaDesc, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="text-right">
+            <input class="btn btn-success" type="submit" value="Lưu" />
+        </div>
+    </div>
+</div>
+}

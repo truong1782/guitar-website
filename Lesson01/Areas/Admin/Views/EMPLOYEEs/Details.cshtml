@@ -1,0 +1,60 @@
+﻿@model MyClass.Model.USER
+
+@{
+    ViewBag.Title = "Thông tin sinh viên";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>THÔNG TIN NHÂN VIÊN</h2>
+    </div>
+    <div class="col-md-6 text-right">
+        <a href="@Url.Action("Index","EMPLOYEEs")" class="btn btn-success"><i class="fas fa-list"></i> Trở về danh sách</a>
+    </div>
+</div>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <div class="form-group">
+            <label style="font-weight: bold"> Mã nhân viên:</label>
+            @Html.DisplayFor(model => model.IdUser)
+        </div>
+        <div class="form-group">
+            <label style="font-weight: bold"> Họ tên:</label>
+            @Html.DisplayFor(model => model.FullName)
+        </div>
+        <div class="form-group">
+            <label style="font-weight: bold"> Chức vụ:</label>
+            @Html.DisplayFor(model => model.ROLE.NameRole)
+        </div>
+
+        <div class="form-group">
+            <label style="font-weight: bold"> Tài khoản:</label>
+            @Html.DisplayFor(model => model.UserName)
+        </div>
+        <div class="form-group">
+            <label style="font-weight: bold"> Email:</label>
+            @Html.DisplayFor(model => model.Email)
+        </div>
+        <div class="form-group">
+                <label style="font-weight: bold"> Số điện thoại:</label>
+                @Html.DisplayFor(model => model.Phone)
+        </div>
+        <div class="form-group">
+            <label style="font-weight: bold">Địa chỉ:</label>
+            @Html.DisplayFor(model => model.Address)
+        </div>
+    </dl>
+</div>
+@if (Model.IdRole != 1)
+{
+    <div class="form-group">
+        <div class="text-right">
+            <a class="btn btn-success" href="@Url.Action("Edit", "EMPLOYEEs", new { @id = Model.IdUser })">
+                SỬA
+            </a>
+        </div>
+    </div>
+}

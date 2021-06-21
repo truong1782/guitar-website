@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Lesson01.Models.Data.CATEGORY>
+<div class="card" style="width: 100%;">
+    <div class="card-header">
+        <strong>Loại sản phẩm</strong>
+    </div>
+    <ul class="list-group list-group-flush">
+        @foreach (var cat in Model)
+        {
+            <li class="list-group-item">
+                <a class="text-dark" href="@Url.Action("Allproduct","Product",new {category_slug = cat.Slug })">
+                    @cat.NameCategory
+                </a>
+            </li>
+        }    
+    </ul>
+</div>

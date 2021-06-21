@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link href="~/Public/css/all.min.css" rel="stylesheet" />
+    <link href="~/Public/css/LayoutSite.css" rel="stylesheet" />
+    <link href="~/Public/css/Site.css" rel="stylesheet" />
+    <link href="~/Public/font/font_Roboto.css" rel="stylesheet" />
+    <link href="~/Public/css/Infomation.css" rel="stylesheet" />
+    <link href="~/Public/css/AllBlog.css" rel="stylesheet" />
+    @RenderSection("header", required: false)
+</head>
+<body>
+    <section id="header">
+        <marquee class="bg-dark py-0">
+            <p class="text-white my-0 py-0">
+                Nhạc cụ chính hãng &nbsp;&nbsp;&nbsp;&nbsp;- &nbsp;&nbsp;&nbsp;&nbsp;Uy tín
+                &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp; Chất lượng &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                Giao hàng nhanh chóng &nbsp;&nbsp;&nbsp;&nbsp;- &nbsp;&nbsp;&nbsp;&nbsp;Guitar acoustic&nbsp;&nbsp;&nbsp;
+                &nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;Guitar classic&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;Email:tdthv@gmail.com&nbsp;
+                &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;hotline:09 090 009 09&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;Địa chỉ:Khu E HUTECH
+            </p>
+        </marquee>
+    </section>
+
+    <section id="mainmenu">
+        @Html.Action("MainMenu", "Module")
+    </section>
+    <section id="maincontent">
+        @RenderBody()
+    </section>
+    <section id="support" class="py-2">
+        <div class="container-fluid bg-light py-2 text__content">
+            <h3 class="text-center"><b>QUYỀN LỢI KHÁCH HÀNG</b></h3>
+            <div class="row mb-3 pt-2 ">
+                <div class="col-md-4 text-center item">
+                    <i class="fas fa-hands-helping fa-3x fa-ce m-2"></i>
+                    <h4 class="text-center">UY TÍN - CHẤT LƯỢNG</h4>
+                </div>
+                <div class="col-md-4 text-center ">
+                    <i class="fas fa-shipping-fast fa-3x fa-ce m-2"></i>
+                    <h4 class="text-center">GIAO HÀNG NHANH CHÓNG</h4>
+                </div>
+                <div class="col-md-4 text-center ">
+                    <i class="fas fa-people-carry fa-3x fa-ce m-2"></i>
+                    <h4 class="text-center">BẢO HÀNH 12 THÁNG</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="footer">
+        <div class="container-fluid">
+            <div class="row bg-light py-2">
+                <div class="col-md-4 col-12 my-md-5">
+                    <img class="img-fluid" src="~/Public/images/Icon/newlogo.png" style="max-height:70%" />
+                </div>
+                <div class="col-md-4 col-12 my-md-5">
+                    <ul>
+                        <li><h5><b>Chính sách</b></h5></li>
+                        <li><a href="@Url.Action("Warranty_Policy","Policy")"><p>Chính sách bảo hành</p></a></li>
+                        <li><a href="@Url.Action("Shipping_Policy","Policy")"><p>Chính sách giao hàng</p></a></li>
+                        <li><a href="@Url.Action("Return_Policy","Policy")"><p>Chính sách đổi trả</p></a></li>
+                        <li><a href="@Url.Action("Purchase_Policy","Policy")"><p>Chính sách thanh toán</p></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-12 my-md-5">
+                    <ul>
+                        <li><h5><b>Thông tin liên hệ</b></h5></li>
+                        <li><p>Địa chỉ: Phường Tân Phú, Quận 9, Thành phố Hồ Chí Minh</p></li>
+                        <li><p>Số điện thoại: 0123456789</p></li>
+                        <li><p>Email: email@gmail.com</p></li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+    <section id="copyright">
+        <div class="my-0 text-light">
+            @@2020 Bản quyền thuộc TDTHV
+        </div>
+    </section>
+
+
+    <!--Copy Back To Top-->
+    <div class="container-fluid">
+        <div class="backToTop">
+            <a href="#" class="backToTop__link cd-top text-replace js-cd-top">
+                <i class="fa fa-angle-double-up"></i>
+            </a>
+        </div>
+    </div>
+    
+    <script src="~/Scripts/jquery-3.0.0.slim.min.js"></script>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Public/js/AllBlog.js"></script>
+    <script src="~/Public/js/util.js"></script>
+    <script src="~/Public/js/main.js"></script>
+    @RenderSection("footer", required: false)
+</body>
+</html>

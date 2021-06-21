@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Chính tiết sản phẩm";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+@using Lesson01.Models.Data;
+@{
+    var data = (PRODUCT)ViewBag.productdetail;
+}
+<div class="container">
+    <h3>Chi tiết sản phẩm</h3>
+    <div class="row">
+        <div class="col-md-6 col-12 border border-dark">
+            <img class="img-fluid" src="~/Public/images/Product/@data.Img" />
+        </div>
+        <div class="col-md-6 col-12">
+            <h2>@data.NameProduct</h2>
+            <p>@data.CATEGORY.NameCategory</p>
+            <p>@data.Detail</p>
+            <h1 style="font-size:34px"><b>Giá: @((String.Format("{0:N0}", data.PriceBuy))+"đ")</b></h1>
+            @Html.ActionLink("Thêm vào giỏ hàng", "AddToCart", "Cart", new { slug = data.Slug }, new { @class = "btn btn-danger" })<br /><br />
+            <a class="btn btn-primary rounded" href="@Url.Action("Index","Site")"><span><i class="fas fa-arrow-circle-left"></i></span>Quay lại cửa hàng</a>
+        </div>
+        <div class="col-md-12">
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v9.0" nonce="EgltG5OE"></script>
+        </div>
+        <div class="col-md-12">
+            <div class="fb-comments" data-href="https://localhost:44327/Product/ProductDetail?slug=@data.NameProduct" data-width="" data-numposts="5"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            
+        </div>
+        <div class="row">
+            
+        </div>
+    </div>
+    
+</div>
+

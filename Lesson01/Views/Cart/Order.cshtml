@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Đặt hàng thành công";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-12 mx-auto">
+            <div class="alert alert-success" role="alert">
+                <h5 class="alert-heading text-center"><i class="fas fa-check-circle"></i>ĐẶT HÀNG THÀNH CÔNG !</h5>
+                <p class="text-dark">Cảm ơn <b>@Session["UserFullName"]</b> đã đặt hàng tại TDTHVGuitar, chúng tôi sẽ sớm liên lạc với bạn để xác nhận đơn hàng.</p>
+                <hr>
+                <a class="btn btn-info" href=@Url.Action("Index","Site")>Quay lại trang chủ</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+

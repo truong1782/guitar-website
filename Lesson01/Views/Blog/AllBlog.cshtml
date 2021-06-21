@@ -1,0 +1,130 @@
+﻿@{
+    ViewBag.Title = "Tất cả bài viết";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+<div class="container">
+    <h3 class="py-3 text-center">BLOG</h3>
+    <main class="row">
+        <!-- Latest Posts -->
+        <div class="sale_blog col-md-3 col-12">
+            <div class="container">
+                <h2 class="p-3">TIN KHUYEN MAI</h2>
+                <div class="card md-12 py-3 mb-2 card__content text-center">
+                    <img src="~/Public/images/Product/guitar_1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Guitar Acoustic Grace G1</h5>
+                        <p class="card-text">1.700.000đ</p>
+                        <a href="#" class="btn btn-primary btn__buy" style="background-color:#ff6a00">BUY</a>
+                    </div>
+                </div>
+                <div class="card md-2 py-3 mb-2 card__content text-center">
+                    <img src="~/Public/images/Product/guitar_1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Guitar Acoustic Grace G1</h5>
+                        <p class="card-text">1.700.000đ</p>
+                        <a href="#" class="btn btn-primary btn__buy" style="background-color:#ff6a00">BUY</a>
+                    </div>
+                </div>
+                <div class="card md-2 py-3 mb-2 card__content text-center">
+                    <img src="~/Public/images/Product/dan-guitar-yamaha-csf1m-2-500x500.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Guitar Acoustic Grace G1</h5>
+                        <p class="card-text">1.700.000đ</p>
+                        <a href="#" class="btn btn-primary btn__buy" style="background-color:#ff6a00">BUY</a>
+                    </div>
+                </div>
+                <div class="card md-2 py-3 mb-2 card__content text-center">
+                    <img src="~/Public/images/Product/dan-guitar-yamaha-csf1m-2-500x500.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Guitar Acoustic Grace G1</h5>
+                        <p class="card-text">1.700.000đ</p>
+                        <a href="#" class="btn btn-primary btn__buy" style="background-color:#ff6a00">BUY</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="post blog-post col-md-6 col-12">
+            <div class="container">
+                <div class="post-single">
+                    <div class="post-thumbnail"><a href="@Url.Action("TinChiaSe","Blog")"> <img src="~/Public/images/Blog/photo-1543062094-d22540cadf2d.jpg" alt="..." class="img-fluid"></a></div>
+
+                    <div class="post-details">
+
+                        <h2>
+                            BẢO QUẢN ĐÀN GUITAR ĐÚNG CÁCH
+                        </h2>
+                        <div class="post-footer d-flex align-items-center flex-column flex-sm-row">
+                         
+                            <div class="d-flex align-items-center flex-wrap">
+                                <div class="date"><i class="icon-clock"></i> OCTOBER 26, 2020</div>
+
+                            </div>
+                        </div>
+                        <div class="post-body">
+                            <p class="lead">Vào những ngày này, Sài Gòn thường hay mưa lắm. Và điều này sẽ ảnh hưởng ít nhiều đến cây đàn guitar của bạn. Tuy nhiên, một số bạn lại vô tình hay cố ý quên đi, dẫn đến giảm tuổi thọ của đàn. Dưới đây là bốn điều cực dễ để  bạn có thể làm để bảo quản đàn guitar của mình mùa mưa gió nhé..</p>
+
+                            @*<p> <img src="~/Public/images/Blog/oleg-ivanov-iB_h6EFRiKY-unsplash.jpg" alt="..." class="img-fluid"></p>
+                                <h3>1. Cất đàn vô bao khi bạn không sử dụng.</h3>
+                                <p>Mưa tạo độ ẩm trong không khí và nếu bạn để guitar “trần trụi” bên ngoài thì không tốt chút nào. Khi bạn không chơi, tốt nhất là bạn nên cất nó trong bao đàn guitar. Một chiếc bao da mềm mại sẽ bảo vệ đàn khỏi bụi bặm, trầy xước. Đặc biệt là giúp dây đàn không bị bẩn hay sét rỉ. Bên cạnh đó, hầu hết đàn guitar đều được thiết kế chịu được tác động nhẹ. Nếu nó ngã xuống, khả năng trầy xước, nứt gãy rất cao. Do đó, bỏ vào bao đàn là một lựa chọn sáng suốt.</p>
+                                <p> <img src="~/Public/images/Blog/thomas-kelley-2ZWCDBuw1B8-unsplash.jpg" alt="..." class="img-fluid"></p>
+                                <h3>2.  Lau đàn sau khi sử dụng, nhất là vào những ngày bạn đi mưa về.</h3>
+                                <p> Bạn luyện tập rất chăm chỉ, thậm chí bạn đã đổ cả mồ hôi, nước mắt để “level” tăng nhanh chóng. Bạn có biết, trong quá trình luyện tập, mồ hôi từ tay sẽ bám vào phần thân đàn. Dầu từ ngón tay sẽ kết hợp với bụi, chất bẩn làm hỏng dây nhanh hơn bạn nghĩ? Do đó, sau mỗi lần tập, bạn nên sử dụng một miếng khăn mỏng lau chùi nhẹ nhàng dây đàn. Đối với phần thân đàn, bạn nên mua chai nước xịt đánh bóng bảo vệ gỗ để vệ sinh hiệu quả cho cây đàn của mình. Dùng bình xịt các bạn xịt nhẹ lên mặt đàn, sau đó bắt đầu lau nhẹ nhàng. Lần lượt mặt đàn, eo đàn, lưng đàn, mặt sau cần đàn rồi đến đầu đàn.</p>
+                                <p> <img src="~/Public/images/Blog/oleg-ivanov-iB_h6EFRiKY-unsplash.jpg" alt="..." class="img-fluid"></p>
+                                <h3>3. Thay bộ dây đàn mới cho cây đàn của bạn.</h3>
+                                <p>Lúc mới bắt đầu chơi đàn thường ta hay để dây đứt mới thay. Tuy nhiên, việc thay dây nên được thực hiện định kì đều đặn. Bởi, dây đàn guitar bị mất độ đàn hồi và bị xỉn màu khi dùng lâu. Những dây cũ có âm thanh yếu ớt. Một cây đàn âm thanh không chuẩn không giúp ích cho một người mới chơi. Tuy nhiên, nếu bạn là một người mới chơi thì đây có vẻ là một công đoạn thật phức tạp. Nên thay loại dây nào? Bao lâu thì nên thay? Làm sao để thay?  Đúng thật là khó khăn cho một người mới tập tành chơi guitar. Đừng quá lo lắng, hãy đến với Grace để được tư vấn chọn loại dây đàn guitar phù hợp và hỗ trợ thay dây miễn phí..</p>
+                                <p> <img src="~/Public/images/Blog/oleg-ivanov-iB_h6EFRiKY-unsplash.jpg" alt="..." class="img-fluid"></p>
+                                <h3>4. Sử dụng bao đàn có chất lượng tốt.</h3>
+                                <p>Bạn nên đầu tư một bao đàn có chất lượng tốt để bảo quản đàn guitar tốt hơn nhé. Đó có thể là case đàn cứng, nếu đàn của bạn xịn sò. Còn không, một bao đàn guitar 3 lớp hoặc 5 lớp là phù hợp. Vừa chống nước, chống xước và chống va đập hiệu quả. Dưới đây là những cách cực đơn giản nhưng hiệu quả để giữ đàn của bạn được sử dụng lâu dài. Nếu cần hỗ trợ thông tin gì thì đừng ngại mà cứ inbox Grace để được tư vấn nhé.</p>
+                                <p> <img src="~/Public/images/Blog/oleg-ivanov-iB_h6EFRiKY-unsplash.jpg" alt="..." class="img-fluid"></p>
+                                <blockquote class="blockquote">
+                                    <p>
+                                        "Nếu tôi không là một nhà vật lí, tôi có thể đã là một nhạc sĩ. Tôi thường suy nghĩ trong âm nhạc. Tôi sống những ngày mơ mộng trong âm nhạc. Tôi thấy cuộc sống của tôi trong âm nhạc. Tôi có hầu hết trong cuộc sống, ngoại trừ âm nhạc."
+                                    </p>
+                                    <footer class="blockquote-footer">
+                                        <h5> Albert Einstein-</h5>
+                                        <cite title="Source Title"></cite>
+                                    </footer>
+                                </blockquote>*@
+
+                        </div>
+
+                        <div class="posts-nav d-flex justify-content-between align-items-stretch flex-column flex-md-row post_next">
+                            <a href="#" class="prev-post text-left d-flex align-items-center">
+                                <div class="icon prev"><i class="fa fa-angle-left"></i></div>
+                                <div class="text">
+                                    <strong class="text-primary">Previous Post </strong>
+                                    <h6>I Bought a Wedding Dress.</h6>
+                                </div>
+                            </a><a href="#" class="next-post text-right d-flex align-items-center justify-content-end">
+                                <div class="text">
+                                    <strong class="text-primary">Next Post </strong>
+                                    <h6>I Bought a Wedding Dress.</h6>
+                                </div>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="sale_blog col-md-3">
+            <div class="container">
+                <h2 class="p-3" style="font-size: 20px; text-align:center;">BÀI VIẾT MỚI NHẤT</h2>
+                <div class="blog-posts">
+                    <a href="@Url.Action("TinChiaSe","Blog")">
+                        <div class="item d-flex align-items-center">
+                            <div class="image img-thumbnail" style="height:40px;width:40px;"><img src="~/Public/images/Blog/oleg-ivanov-iB_h6EFRiKY-unsplash.jpg" alt="..." class="img-fluid"></div>
+                            <div class="title">
+                                <strong> BẢO QUẢN ĐÀN GUITAR ĐÚNG CÁCH</strong>
+                            </div>
+                        </div>
+                    </a>                       
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+

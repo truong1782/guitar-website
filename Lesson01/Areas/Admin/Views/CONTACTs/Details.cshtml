@@ -1,0 +1,61 @@
+﻿@model MyClass.Model.CONTACT
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row">
+    <div class="col-md-6">
+        <h2>THÔNG TIN LIÊN HỆ</h2>
+    </div>
+    <div class="col-md-6 text-right">
+        <a href="@Url.Action("Index","CONTACTs")" class="btn btn-success"><i class="fas fa-list"></i> Trở về danh sách</a>
+    </div>
+</div>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <div class="form-group">
+            <div class="col-md-4">
+                <label style="font-weight: bold"> Mã liên hệ:</label>
+                @Html.DisplayFor(model => model.IdContact)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label style="font-weight: bold"> Họ tên:</label>
+                @Html.DisplayFor(model => model.FullName)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label style="font-weight: bold"> Nội dung:</label>
+                @Html.DisplayFor(model => model.Detail)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label style="font-weight: bold"> Email:</label>
+                @Html.DisplayFor(model => model.Email)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label style="font-weight: bold"> Số điện thoại:</label>
+                @Html.DisplayFor(model => model.Phone)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label style="font-weight: bold">Ngày tạo:</label>
+                @Html.DisplayFor(model => model.DateContact)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label style="font-weight: bold">Status:</label>
+                @Html.DisplayFor(model => model.Status)
+            </div>
+        </div>
+    </dl>
+</div>

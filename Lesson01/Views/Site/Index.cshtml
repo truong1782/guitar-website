@@ -1,0 +1,241 @@
+﻿
+@{
+    ViewBag.Title = "Guitar chính hãng";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+@using Lesson01.Models.Data;
+
+<section class="slider">
+    @Html.Action("Slide", "Module")
+</section>
+<section class="intro">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-12 my-2" style="overflow:hidden;">
+                <div class="cours2 my-0 mx-0" style="overflow:hidden;">
+                    <img class="hover" src="~/Public/images/intro/intro_11.jpg" style="width:100%;height:200px;border:1px solid transparent;transition:.5s;">
+                    <div class="cours4 text-center">
+                        <a class="btn cou" href="@Url.Action("Allproduct","Product",new {category_slug = "guitar-acoustic" })" style="border:1px solid transparent;padding:10px 20px ;font-size:16px;background-color:rgb(237,78,110);color:white;">Guitar Acoustic</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-12 my-2">
+                <div class="cours2 my-0 mx-0" style="overflow:hidden;">
+                    <img class="hover" src="~/Public/images/intro/intro_2.jpg" style="width:100%;height:200px;border:1px solid transparent;transition:.5s;">
+                    <div class="cours4 text-center">
+                        <a class="btn cou" href="@Url.Action("Allproduct","Product",new {category_slug = "guitar-classic" })" style="border:1px solid transparent;padding:10px 20px ;font-size:16px;background-color:rgb(237,78,110);color:white;">Guitar Classic</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-12 my-2">
+                <div class="cours2 my-0 mx-0" style="overflow:hidden;">
+                    <img class="hover" src="~/Public/images/intro/intro_3.jpg" style="width:100%;height:200px;border:1px solid transparent;transition:.5s;">
+                    <div class="cours4 text-center">
+                        <a class="btn cou" style="border:1px solid transparent;padding:10px 20px ;font-size:16px;background-color:rgb(237,78,110);color:white;">Guitar điện</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-12 my-2">
+                <div class="cours2 my-0 mx-0" style="overflow:hidden;">
+                    <img class="hover" src="~/Public/images/intro/intro_4.jpg" style="width:100%;height:200px;border:1px solid transparent;transition:.5s;">
+                    <div class="cours4 text-center">
+                        <a class="btn cou" style="border:1px solid transparent;padding:10px 20px ;font-size:16px;background-color:rgb(237,78,110);color:white;">Ukulele</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-12 my-2">
+                <div class="cours2 my-0 mx-0" style="overflow:hidden;">
+                    <img class="hover" src="~/Public/images/intro/intro_5.jpg" style="width:100%;height:200px;border:1px solid transparent;transition:.5s;">
+                    <div class="cours4 text-center">
+                        <a class="btn cou" style="border:1px solid transparent;padding:10px 20px ;font-size:16px;background-color:rgb(237,78,110);color:white;">Phụ kiện</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="new_products">
+    <div class="container">
+        <div class="row my-3 pb-2 bg-light">
+            <h4 class="text-center mt-2 col-md-12">SẢN PHẨM MỚI</h4>
+            @foreach (PRODUCT item in ViewBag.listPr)
+            {
+                <div class="col-md-3 col-6">
+                    <div class="card" style="width: 100%;">
+                        <a href="@Url.Action("ProductDetail","Product",new {slug = item.Slug })">
+                            <img src="~/Public/images/Product/@item.Img" class="card-img-top" alt="@item.NameProduct">
+                        </a>
+
+                        <div class="card-body">
+                            <p class="card-title text-left font-weight-bolder">@item.NameProduct</p>
+                            <p class="card-text text-left font-weight-light">
+                                Giá:@((String.Format("{0:N0}", item.PriceBuy))+"đ")
+                            </p>
+                            <a class="btn btn-primary" href="@Url.Action("ProductDetail","Product",new {slug = item.Slug })">Chi tiết sản phẩm</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="acoustic_guitar">
+    <div class="container bg-light py-3 px-3 my-3">
+        <div class="row mb-3">
+            <div class="col-md-4 col-12">
+                <img class="img-fluid" src="~/Public/images/intro/intro_1.jpg" />
+            </div>
+            <div class="col-md-8 col-12">
+                <h5 class="text-left mt-2">GUITAR ACOUSTIC</h5>
+                <p>Đàn guitar acoustic là một loại nhạc cụ trong họ đàn guitar. Các dây của nó làm rung một bảng âm thanh trên một cơ thể cộng hưởng để truyền sóng âm trong không khí. Thuật ngữ ban đầu, chung cho nhạc cụ dây này là guitar, và từ viết tắt 'acoustic guitar' phân biệt nó với guitar điện, dựa vào khuếch đại điện tử.</p>
+                <a href="@Url.Action("Allproduct","Product",new {category_slug = "guitar-acoustic" })">
+                    <p class="text-left mt-2">
+                        XEM TẤT CẢ <span><i class="fas fa-chevron-circle-right"></i></span>
+                    </p>
+                </a>
+
+            </div>
+        </div>
+        <div class="row">
+            @foreach (PRODUCT item in ViewBag.listPr_acoustic)
+            {
+                <div class="col-md-3 col-6">
+                    <div class="card">
+                        <a href="@Url.Action("ProductDetail","Product",new {slug = item.Slug })">
+                            <img src="~/Public/images/Product/@item.Img" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-title text-left">@item.NameProduct</h4>
+                            <p class="card-text text-left">
+                                <b>Giá:@((String.Format("{0:N0}", item.PriceBuy))+"đ")</b>
+                            </p>
+                            <a class="btn btn-primary" href="@Url.Action("ProductDetail","Product",new {slug = item.Slug })">Chi tiết sản phẩm</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="classic_guitar">
+    <div class="container bg-light py-3 px-3 my-3" style="box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+">
+        <div class="row">
+            <div class="col-md-8 col-12">
+                <h5 class="text-right mt-2">GUITAR CLASSIC</h5>
+                <p class="text-right">Guitar cổ điển, guitar dây nylon hoặc guitar Tây Ban Nha là một thành viên của dòng guitar được sử dụng trong âm nhạc cổ điển. Là một nhạc cụ dây gỗ âm thanh với dây làm bằng ruột hoặc nylon, nó là tiền thân của guitar acoustic và guitar điện hiện đại, cả hai đều sử dụng dây kim loại.</p>
+                <a href="@Url.Action("Allproduct","Product",new {category_slug = "guitar-classic" })">
+                    <p class="text-right mt-2">
+                        XEM TẤT CẢ <span><i class="fas fa-chevron-circle-right"></i></span>
+                    </p>
+                </a>
+            </div>
+            <div class="col-md-4 col-12">
+                <img class="img-fluid" src="~/Public/images/intro/intro_2.jpg" />
+            </div>
+        </div>
+        <div class="row">
+            @foreach (PRODUCT item in ViewBag.listPr_classic)
+            {
+                <div class="col-md-3 col-6">
+                    <div class="card">
+                        <a href="@Url.Action("ProductDetail","Product",new {slug = item.Slug })">
+                            <img src="~/Public/images/Product/@item.Img" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-title text-left">@item.NameProduct</h4>
+                            <p class="card-text text-left">
+                                <b>Giá:@((String.Format("{0:N0}", item.PriceBuy))+"đ")</b>
+                            </p>
+                            <a class="btn btn-primary" href="@Url.Action("ProductDetail","Product",new {slug = item.Slug })">Chi tiết sản phẩm</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="eletric_guitar">
+    <div class="container bg-light py-3 px-3 my-3">
+        <div class="row">
+            <div class="col-md-4 col-12">
+                <img class="img-fluid" src="~/Public/images/intro/intro_3.jpg" />
+            </div>
+            <div class="col-md-8 col-12">
+                <h5 class="text-left mt-2">GUITAR ĐIỆN</h5>
+                <p>Theo nhiều nguồn âm nhạc thì đàn guitar điện được định nghĩa như sau: Đàn guitar điện hay ghita điện là một cây đàn guitar sử dụng pickup để chuyển đổi các rung động của dây đàn thành các xung điện. Pickup đàn guitar phổ biến nhất sử dụng nguyên lý cảm ứng điện từ trực tiếp. Các tín hiệu được guitar điện tạo ra quá yếu để đưa ra loa, do đó, nó được khuếch đại trước khi đưa ra.</p>
+                <a href="#">
+                    <p class="text-left mt-2">
+                        XEM TẤT CẢ <span><i class="fas fa-chevron-circle-right"></i></span>
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (PRODUCT item in ViewBag.listPr_eletric)
+            {
+                <div class="col-md-3 col-6">
+                    <div class="card">
+                        <a href="@Url.Action("Allproduct","Product",new {category_slug = "guitar-acoustic" })">
+                            <img src="~/Public/images/Product/@item.Img" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-title text-left">@item.NameProduct</h4>
+                            <p class="card-text text-left">
+                                <b>Giá:@((String.Format("{0:N0}", item.PriceBuy))+"đ")</b>
+                            </p>
+                            <a class="btn btn-primary" href="@Url.Action("ProductDetail","Product",new {slug = item.Slug })">Chi tiết sản phẩm</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="blog">
+    <div class="container bg-light py-3 px-3 my-3">
+        <h3 class="text-center">BÀI VIẾT MỚI NHẤT</h3>
+        <div class="row">
+            <div class="col-md-4 col-12">
+                <div class="card" style="width: 100%;">
+                    <img src="~/Public/images/Blog/9-1576942155870.jpg" class="card-img-top img-fluid" alt="..." style="height:250px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Một cây guitar tăng giá 1.600 lần sau 50 năm</h5>
+                        <p class="card-text">Ca sĩ Francis Rossi - thành viên của nhóm Status Quo - đã vừa đấu giá cây guitar màu xanh mà ông sử dụng suốt gần nửa thế kỷ. Giá cây đàn đã tăng gần 1.600 lần. </p>
+                        <a href="#" class="btn btn-primary float-md-right float-right">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-12">
+                <div class="card" style="width: 100%;">
+                    <img src="~/Public/images/Blog/igor2-15638596264541933245309.jpg" class="card-img-top img-fluid" alt="..." style="height:250px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Tay guitar triệu người theo dõi của Nga gây sốt khi cover nhạc Sơn Tùng</h5>
+                        <p class="card-text">
+                            Video cover bản hit Hãy trao cho anh của Sơn Tùng M-TP do nghệ sĩ Igor Presnyakov thể hiện đạt hơn 900.000 lượt xem chỉ trong 5 ngày.
+                        </p>
+                        <a href="#" class="btn btn-primary float-md-right float-right">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-12">
+                <div class="card" style="width: 100%;">
+                    <img src="~/Public/images/Blog/image4-15403462592201086016818.jpeg" class="card-img-top img-fluid" alt="..." style="height:250px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Nhiều nghệ sĩ guitar quốc tế đến Việt Nam giao lưu</h5>
+                        <p class="card-text">
+                            Festival guitar “Alma Ha Noi International festival and competition” là cuộc hội ngộ của các nghệ sĩ nổi tiếng trong nước và quốc tế...
+                        </p>
+                        <a href="#" class="btn btn-primary float-md-right float-right">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

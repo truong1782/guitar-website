@@ -1,0 +1,78 @@
+﻿@model IEnumerable<MyClass.Model.CONTACT>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-6">
+                <strong>DANH SÁCH LIÊN HỆ</strong>
+            </div>
+        </div>
+
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-striped" id="myTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tên người gửi</th>
+                    <th>Tiêu đề</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdContact)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @if (item.Status == 1)
+                            {
+                                <a class="btn btn-sm btn-success" href="@Url.Action("Status","CONTACT",new { @id = item.IdContact })">
+                                    <i class="fas fa-toggle-on"></i>
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="btn btn-sm btn-danger" href="@Url.Action("Status","CONTACTs",new { @id = item.IdContact })">
+                                    <i class="fas fa-toggle-off"></i>
+                                </a>
+                            }
+                            <a class="btn btn-sm btn-danger" href="@Url.Action("Delete","CONTACTs",new { @id = item.IdContact })">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                            <a class="btn btn-sm btn-info" href="@Url.Action("Details","CONTACTs",new { @id = item.IdContact })">
+                                <i class="fas fa-info-circle"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    jQuery(document).ready(function () {
+        $('#myTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Vietnamese.json"
+            }
+        });
+    });
+</script>

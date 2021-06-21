@@ -1,0 +1,49 @@
+﻿@model MyClass.Model.CATEGORY
+
+@{
+    ViewBag.Title = "Thêm loại sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>LOẠI SẢN PHẨM</h2>
+    </div>
+    <div class="col-md-6 text-right">
+        <a href="@Url.Action("Index","CATEGORYs")" class="btn btn-success"><i class="fas fa-list"></i> Trở về danh sách</a>
+    </div>
+</div>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>CATEGORY</h4>
+        <hr />
+        <div class="form-group">
+            <div>
+                <label>Tên loại</label>
+                @Html.EditorFor(model => model.NameCategory, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NameCategory, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label>MetaKey</label>
+                @Html.EditorFor(model => model.MetaKey, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MetaKey, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label>Mô tả</label>
+                @Html.EditorFor(model => model.MetaDesc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MetaDesc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+                <div class="text-right">
+                    <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Thêm loại sản phẩm</button>
+                </div>
+    </div>
+}

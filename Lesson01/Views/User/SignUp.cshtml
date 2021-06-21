@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+@using Lesson01.Models.Data;
+<div class="container">
+    <div class="row">        
+        <div class="col-md-6 border border-dark rounded py-2 mx-auto">
+            @using (Html.BeginForm("SignUp", "User", FormMethod.Post))
+            {
+                @Html.Raw(ViewBag.Notice)
+                <h1 class="text-center"><b>Đăng Ký Tài Khoản</b></h1>
+                <div class="form-group">
+                    <label for="email">Email<span class="text-danger">(*)</span></label>
+                    <input type="text" class="form-control" name="email" id="email" />
+                </div>
+
+                <div class="form-group">
+                    <label for="fullname">Họ tên<span class="text-danger">(*)</span></label>
+                    <input type="text" class="form-control" name="fullname" id="fullname" />
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Tên đăng nhập<span class="text-danger">(*)</span></label>
+                    <input type="text" class="form-control" name="username" id="username" />
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mật khẩu<span class="text-danger">(*)</span></label>
+                    <input type="password" class="form-control" name="password" id="password" />
+                </div>
+
+                <div class="form-group">
+                    <label for="password_repeat">Nhập lại mật khẩu<span class="text-danger">(*)</span></label>
+                    <input type="password" class="form-control" name="password_repeat" id="password_repeat" />
+                </div>
+
+                <div class="form-group">
+                    <label for="phonenumber">Số điện thoại<span class="text-danger">(*)</span></label>
+                    <input type="text" class="form-control" name="phonenumber" id="phonenumber" />
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Địa chỉ<span class="text-danger">(*)</span></label>
+                    <input type="text" class="form-control" name="address" id="address" />
+                </div>
+
+                <button name="btn-login" type="submit" value="CreateAccount" class="btn btn-primary btn-block">Đăng Ký</button>
+            }
+        </div>
+    </div>
+</div>
+

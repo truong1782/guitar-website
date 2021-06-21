@@ -1,0 +1,84 @@
+﻿@model MyClass.Model.ORDER
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>THÔNG TIN HÓA ĐƠN</h2>
+    </div>
+    <div class="col-md-6 text-right">
+        <a href="@Url.Action("Index","ORDERs")" class="btn btn-success"><i class="fas fa-list"></i> Trở về danh sách</a>
+    </div>
+</div>
+<div>
+    <hr />
+        <dl class="dl-horizontal">
+            <div class="form-group">
+                <div class="col-md-4">
+                    <label style="font-weight: bold"> Mã liên hệ:</label>
+                    @Html.DisplayFor(model => model.IdOrder)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4">
+                    <label style="font-weight: bold"> Họ tên:</label>
+                    @Html.DisplayFor(model => model.USER.FullName)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4">
+                    <label style="font-weight: bold"> Ngày lập:</label>
+                    @Html.DisplayFor(model => model.DateOrder)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4">
+                    <label style="font-weight: bold">Ghi chú:</label>
+                    @Html.DisplayFor(model => model.Note)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4">
+                    <label style="font-weight: bold">Status:</label>
+                    @Html.DisplayFor(model => model.Status)
+                </div>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-bordered table-striped" id="myTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Giá bán</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ var index = 0; }
+                        @foreach (var item in Model.ORDER_DETAIL)
+                        {
+                        <tr>
+                            <td>
+                                @(++index)
+                            </td>
+                            <td>
+                                @item.PRODUCT.NameProduct
+                            </td>
+                            <td>
+                                @item.Quantity
+                            </td>
+                            <td>
+                                @string.Format("{0:N0}", item.PriceBuy)
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </dl>
+</div>
